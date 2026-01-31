@@ -7,82 +7,47 @@
     <link rel="icon" href="https://fav.farm/❤️" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fce4ec;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-        #card {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 340px; 
-            max-height: 85vh; /* This makes it fit on phone screens */
-            overflow-y: auto; /* Adds a scroll if the letter is long */
-            position: relative;
-            z-index: 10;
+        body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #fce4ec; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+        
+        #card { 
+            background: white; padding: 30px; border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; 
+            width: 340px; max-height: 90vh; overflow-y: auto; position: relative; z-index: 10; 
         }
 
         .letter { 
-            background: #fff5f7; 
-            padding: 20px; 
-            border: 1px dashed #ff4d6d; 
-            border-radius: 15px; 
-            text-align: left; 
-            font-style: italic; 
-            color: #444;
-            margin-top: 15px;
-            font-size: 15px;
-            line-height: 1.6; /* Makes the text easier to read */
+            background: #fff5f7; padding: 20px; border: 1px dashed #ff4d6d; 
+            border-radius: 15px; text-align: left; font-style: italic; 
+            color: #444; margin-top: 15px; font-size: 15px; line-height: 1.6; 
         }
+
         h1 { color: #d81b60; font-size: 24px; margin-bottom: 10px; }
         p { color: #555; line-height: 1.5; }
+
         .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
-            height: 50px;
+            display: flex; justify-content: center; gap: 15px;
+            margin-top: 25px; height: 50px; position: relative;
         }
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        #yesBtn { background-color: #ff4d6d; color: white; font-size: 18px; }
-        #noBtn { 
-            background-color: #eeeeee; 
-            color: #999; 
-            position: absolute; 
-        }
+
+        button { padding: 12px 25px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
+        #yesBtn { background-color: #ff4d6d; color: white; font-size: 18px; z-index: 2; }
+        
+        /* Fixed No Button Initial Position to prevent overlap */
+        #noBtn { background-color: #eeeeee; color: #999; position: absolute; left: 180px; transition: 0.3s ease; }
+
         .hidden { display: none !important; }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
-        img { width: 140px; border-radius: 10px; }
-    
-        .pink-btn { background-color: #ff4d6d; color: white; width: 100%; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; }
+        img { width: 140px; border-radius: 10px; margin-bottom: 10px; }
+        .pink-btn { background-color: #ff4d6d; color: white; width: 100%; margin-top: 10px; }
+
+        #shotYes, #shotNo { margin: 10px; width: 80px; }
     </style>
 </head>
 <body>
 
     <div id="card">
         <div id="step1">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4ZzRnd3p6eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/cLS1cfxvGOPVpf9g3y/giphy.gif">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4ZzRnd3p6eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute GIF">
             <h1>Hey Christine...</h1>
             <p>I've been thinking about this for a while now. Will you be my Valentine?</p>
             <div class="btn-container">
@@ -92,9 +57,9 @@
         </div>
 
         <div id="step2" class="hidden">
-            <h1>Perfect choice, Obira! ❤️</h1>
-            <form id="valentineForm" action="https://formspree.io/f/mzdgqjoo" method="POST">
-                <input type="hidden" name="name" value="Esther">
+            <h1>Perfect choice, Obeeraa! ❤️</h1>
+            <form id="valentineForm" action="https://formspree.io/f/mkobdnvo" method="POST">
+                <input type="hidden" name="name" value="Obeeraa">
                 <select name="activity" required>
                     <option value="" disabled selected>Pick an activity</option>
                     <option value="Dinner & Stargazing">Dinner & Stargazing 🌌</option>
@@ -112,6 +77,7 @@
         </div>
         
         <div id="step3" class="hidden">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4ZzRnd3p6eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26FLdmIp6wJr91JAI/giphy.gif" style="width:120px;">
             <h1>One last thing...</h1>
             <p>Can I shoot my shot? 🏀</p>
             <button id="shotYes" style="background:#4CAF50; color:white;">Yes</button>
@@ -119,18 +85,18 @@
         </div>
 
         <div id="finalPanda" class="hidden">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmY4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/OPU6wUKARA8AU/giphy.gif" style="width:200px;">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmY4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/OPU6wUKARA8AU/giphy.gif" style="width:180px;">
             <h1>Please? 🥺</h1>
             <button onclick="location.reload()" class="pink-btn">Try again?</button>
         </div>
 
         <div id="finalLetter" class="hidden">
-            <h1>Thank you for saying yes! ❤️</h1>
+            <h1>Thank you! ❤️</h1>
             <div class="letter">
                 <p>Dear Obeeraa,</p>
                 <p>I’m so happy you’re reading this. I wanted to do something a little different to ask you out because, honestly, you’re not like anyone else I’ve ever met.</p>
-                <p>Lately, I've realized that my favorite parts of the day are the ones where I get to talk to you or make you laugh. You have this way of making everything feel a bit brighter just by being yourself, and I’ve been wanting to tell you for a while now how much I truly appreciate having you in my life.</p>
-                <p>I’m really excited for the date. Whether we're stargazing or just talking, I know it'll be fun. Thank you for being you, Obeeraa. I can't wait to see you.</p>
+                <p>Lately, I've realized that my favorite parts of the day are the ones where I get to talk to you or make you laugh. You have this way of making everything feel a bit brighter just by being yourself.</p>
+                <p>I’m really excited for the date. Whether we're stargazing or just talking, I know it'll be fun. Thank you for being you, Obeeraa.</p>
                 <p style="text-align: right;">— [Nur]</p>
             </div>
         </div>
@@ -141,21 +107,24 @@
         const yesBtn = document.getElementById('yesBtn');
         const valentineForm = document.getElementById('valentineForm');
 
-        // 1. Moving No Button
-        noBtn.addEventListener('mouseover', () => {
+        // Improved Moving No Button Logic for Mouse and Touch
+        const moveNo = () => {
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
-        });
+        };
 
-        // 2. Step 1 to Step 2
+        noBtn.addEventListener('mouseover', moveNo);
+        noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNo(); });
+
+        // Step Transitions
         yesBtn.addEventListener('click', () => {
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
         });
 
-        // 3. Step 2 to Step 3 (Form Submission)
         valentineForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
@@ -168,7 +137,6 @@
             document.getElementById('step3').classList.remove('hidden');
         });
 
-        // 4. Step 3 logic
         document.getElementById('shotNo').addEventListener('click', () => {
             document.getElementById('step3').classList.add('hidden');
             document.getElementById('finalPanda').classList.remove('hidden');
